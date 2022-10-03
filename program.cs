@@ -1,10 +1,10 @@
-﻿/* Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
-Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿/* Задача 34: Задайте массив заполненный случайными положительными трехзначными числами.
+Напишите программу, которая покажет количество четных чисел в массиве.
 [345, 897, 568, 234] -> 2
 */
 Console.Clear();
-Console.WriteLine($"Задача 34. Количество чётных чисел в массиве:\n");
-int[] numbers = new int[10];
+Console.WriteLine($"Задача 34. Количество четных чисел в массиве:\n");
+int[] num = new int[10];
 
 void FillArray(int[] array, int min, int max){
   for (int i = 0; i<array.Length; i++ ){
@@ -19,23 +19,23 @@ void WriteArray(int[] array){
   Console.WriteLine();
 }
 
-int QuantityPositive(int[] array){
-    int quantity = 0;
+int numIsEvenPositive(int[] array){
+    int numIsEven = 0;
     for (int i = 0; i<array.Length; i++ ){
     if (array[i] % 2 == 1)
     {
-      quantity++;
+      numIsEven++;
     }
   }
-  return quantity;
+  return numIsEven;
 }
 
-FillArray(numbers, 100, 1000);
-WriteArray(numbers);
+FillArray(num, 100, 1000);
+WriteArray(num);
 Console.WriteLine();
 
-int quantity = QuantityPositive(numbers);
-Console.WriteLine($"Количество чётных чисел в массиве: {quantity}");
+int numIsEven = numIsEvenPositive(num);
+Console.WriteLine($"Количество четных чисел в массиве: {numIsEven}\n");
 
 
 /* Задача 36: Задайте одномерный массив, заполненный случайными числами. 
@@ -45,64 +45,64 @@ Console.WriteLine($"Количество чётных чисел в массив
 */
 
 
-// Console.Clear();
-Console.WriteLine($"Задача 36. Сумма элементов, стоящих на нечётных позициях:\n");
-Console.Write($"Введи количество элементов массива: ");
-int numberElements = Convert.ToInt32(Console.ReadLine()); 
 
-int RandomNumbers(int numberElements, int min, int max)
+Console.WriteLine($"\nЗадача 36. Сумма элементов, стоящих на нечетных позициях:\n");
+Console.Write($"Введите количество элементов массива: ");
+int numElements = Convert.ToInt32(Console.ReadLine()); 
+
+int RandomNum(int numElements, int min, int max)
   {
-  int[] randomNumbers = new int[numberElements];
+  int[] randomNum = new int[numElements];
   int sumElements = 0;
   Console.Write("Получившийся массив: ");
 
-    for (int i = 0; i <randomNumbers.Length; i++ ){
-      randomNumbers[i] = new Random().Next(min, max);
+    for (int i = 0; i <randomNum.Length; i++ ){
+      randomNum[i] = new Random().Next(min, max);
 
-      Console.Write(randomNumbers[i] + " ");
+      Console.Write(randomNum[i] + " ");
 
       if (i % 2 != 1)
       {
-        sumElements = sumElements + randomNumbers[i];
+        sumElements = sumElements + randomNum[i];
       }
     }
   return sumElements;
   }
 
-int randomNumbers =  RandomNumbers(numberElements, 1, 10);
+int randomNum =  RandomNum(numElements, 1, 10);
 
-Console.WriteLine($"\nСумма элементов, стоящих на нечётных позициях: {randomNumbers}");
+Console.WriteLine($"\nСумма элементов, стоящих на нечетных позициях: {randomNum}");
 
 
 /* Задача 38: Задайте массив вещественных чисел. 
 Найдите разницу между максимальным и минимальным элементов массива.
  [3 7 22 2 78] -> 76
 */
-
+//Console.Clear();
 Console.WriteLine($"\nЗадача 38. Найдите разницу между максимальным и минимальным элементов массива из вещественных чисел:\n");
 
-double[] arrayRealNumbers = new double[10];
-  for (int i = 0; i < arrayRealNumbers.Length; i++ )
+double[] arrayRealNum= new double[10];
+  for (int i = 0; i < arrayRealNum.Length; i++ )
   {
-    arrayRealNumbers[i] = new Random().Next(1, 10);
-    Console.Write(arrayRealNumbers[i] + " ");
+    arrayRealNum[i] = new Random().Next(1, 10);
+    Console.Write(arrayRealNum[i] + " ");
   }
 
-double maxNumber = arrayRealNumbers[0];
-double minNumber = arrayRealNumbers[0];
+double maxNum = arrayRealNum[0];
+double minNum = arrayRealNum[0];
 
-  for (int i = 1; i < arrayRealNumbers.Length; i++)
+  for (int i = 1; i < arrayRealNum.Length; i++)
   {
-    if (maxNumber < arrayRealNumbers[i])
+    if (maxNum < arrayRealNum[i])
     {
-      maxNumber = arrayRealNumbers[i];
+      maxNum = arrayRealNum[i];
     }
-        if (minNumber > arrayRealNumbers[i])
+        if (minNum > arrayRealNum[i])
     {
-      minNumber = arrayRealNumbers[i];
+      minNum = arrayRealNum[i];
     }
   }
 
-  double decision = maxNumber - minNumber;
+  double answer = maxNum - minNum;
 
-  Console.WriteLine($"\nразница между между максимальным ({maxNumber}) и минимальным({minNumber}) элементами: {decision}");
+  Console.WriteLine($"\nРазница между максимальными ({maxNum}) и минимальными({minNum}) элементами: {answer}");
